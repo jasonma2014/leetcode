@@ -8,21 +8,19 @@ import java.util.Map;
 public class Solution {
     public boolean isValid(String s) {
         int n = s.length();
-        if ( n % 2 != 0) {
+        if (n % 2 == 1) {
             return false;
         }
 
-        Map<Character, Character> pairs = new HashMap() {{
-          put(')', '(');
-          put(']', '[');
-          put('}', '{');
+        Map<Character, Character> pairs = new HashMap<Character, Character>() {{
+            put(')', '(');
+            put(']', '[');
+            put('}', '{');
         }};
-        Deque<Character> stack = new LinkedList<>();
-
+        Deque<Character> stack = new LinkedList<Character>();
         for (int i = 0; i < n; i++) {
-            Character ch = s.charAt(i);
+            char ch = s.charAt(i);
             if (pairs.containsKey(ch)) {
-                // this is the logic.
                 if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
                     return false;
                 }
