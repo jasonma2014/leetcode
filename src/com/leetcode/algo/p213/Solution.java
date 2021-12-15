@@ -13,6 +13,7 @@ public class Solution {
 
     }
     private int robRange(int[] nums, int start, int end) {
-        int first = nums[start]
+        int first = nums[start];
+        int second =
     }
 }
