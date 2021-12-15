@@ -2,15 +2,19 @@ package com.leetcode.algo.p509;
 
 public class Solution {
     public int fib(int n) {
-        if ( n < 2) return n;
-
-        int p, q = 0, r = 1;
-
-        for (int i = 2; i <= n; i++) {
-            p = q;
-            q = r;
-            r = p + q;
+        if (n == 0 ) {
+            return 0;
         }
-        return r;
+
+        if ( n == 1 || n == 2) {
+            return 1;
+        }
+        int prev = 1, curr = 1;
+        for (int i = 3; i <= n; i++) {
+            int sum = prev + curr;
+            prev = curr;
+            curr = sum;
+        }
+        return curr;
     }
 }
