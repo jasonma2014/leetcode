@@ -4,15 +4,17 @@ public class Solution {
     //double pointer
     // 1. put l, r to the leftmost/rightmost
     public int maxArea(int[] height) {
-        int maxArea = 0, l = 0, r = height.length - 1;
+        int l = 0, r  = height.length -1;
+        int ans =  0;
         while(l < r) {
-            maxArea = Math.max(maxArea, Math.min(height[l], height[r])*(r -l));
-            if (height[l] < height[r]) {
-                l++;
+            int area = Math.min(height[l], height[r]) * (r -1);
+            ans = Math.max(ans, area);
+            if (height[l] <= height[r]) {
+                ++l;
             } else {
-                r--;
+                --r;
             }
         }
-        return maxArea;
+        return ans;
     }
 }
